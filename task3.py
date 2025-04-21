@@ -6,3 +6,11 @@
 # Абракадабра
 # Вывод
 # а-5 б-2 д-1 к-1 р-2
+a = list(input().lower())
+
+d = set()
+for i in a:
+    d.add((i, a.count(i)))
+
+for i in d:
+    print(f'{i[0]}-{i[1]}',end=' ')
