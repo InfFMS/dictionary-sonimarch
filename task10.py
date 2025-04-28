@@ -4,3 +4,24 @@
 # потом после пробела - значение (может быть строкой, числом, или набором чисел),
 # все, что после символа "//" это комментарий  должно игнорироваться.
 # Реализуйте считывание значений из файла и запись этих значений в словарь.
+
+
+d = {}
+f = open('parameters.txt')
+st = f.readlines()
+f.close()
+for i in st:
+    print(i)
+    if '//' in i:
+        a = i[:i.index('//')]
+    a = a.split()
+    if len(a) == 2:
+        d[a[0]] = a[1]
+    else:
+        if all(y.isdigit() for y in a[1::]):
+            d[a[0]] = list(map(lambda x: int(x), a[1::]))
+        else:
+            d[a[0]] = ' '.join(a[1::])
+
+
+print(d)
